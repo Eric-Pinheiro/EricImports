@@ -1,0 +1,24 @@
+<%- include('partials/header.ejs') %>
+
+<div class="container col-4">
+<div class="card mt-4">
+    <div class="card-header">
+        <h2>Cadastro de usuário</h2>
+    </div>
+    <div class="card-body ">
+       
+        <form action="/createUsuario" method="post">
+            <label for="email">E-mail</label>
+            <input type="email" class="form-control" name="email" placeholder="exemplo@gmail.com" required>
+            <label for="Senha">Senha</label>
+            <input type="password" class="form-control" name="senha" placeholder="" required>
+        <input type="submit" class="btn btn-success btn-block" value="Cadastrar">
+        </form>
+        <hr>
+        <h6>Já possui conta? <a href="/login">Faça o login!</a></h6>
+    </div>
+</div>
+</div>
+
+
+<%- include('partials/footer.ejs') %>

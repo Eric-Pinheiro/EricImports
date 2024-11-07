@@ -1,0 +1,27 @@
+<%- include('partials/header.ejs')%>
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h1>Alterar pedido</h1>
+        </div>
+        <hr>
+        <div class="card-body">
+            <form action="/pedidos/update" method="post">
+                
+                <label>Nome do pedido:</label>
+                <input class="form-control" type="text" name="nome" id="nome" value="<%= pedido.nome %>" required>
+                <label>cpf do pedido:</label>
+                <input class="form-control" type="text" name="preco" id="preco" value="<%= pedido.preco %>" required>
+                <label>categoria do pedido:</label>
+                <input class="form-control" type="text" name="categoria" id="categoria" value="<%= pedido.categoria %>" required>
+                <input class="form-control" type="hidden" name="id" id="id" value="<%= pedido.id %>" required>
+                <br>
+                <input type="submit" class="btn btn-warning" onclick="return confirm('Confirma as alterações para o pedido <%=pedido.nome %>')" value="Alterar">
+            </form>
+            <hr>
+        </div>
+    </div>
+</div>
+
+<%-  include('partials/footer.ejs') %>

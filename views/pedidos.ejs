@@ -1,0 +1,61 @@
+<%- include('partials/header.ejs')%>
+<div class="cotainer-fluid body">
+    <div class="container">
+        <h2 class="ps-4 py-3">Pagina de Pedidos</h2>
+
+        <div class="card">
+            <div class="card-header"><h1>Cadastrar Pedido</h1></div>
+            <div class="card-body">
+              <form action="/Pedidos/new" method="post">
+                <LABEl>nome do Pedido:</LABEl>
+                <input type="text" name="nome" id="nome" placeholder="insira o nome do Veiculo" class="form-control" required>
+                <LABEl>preco do Pedido:</LABEl>
+                <input type="text" name="preco" id="preco" placeholder="insira o preco do Veiculo" class="form-control" required>
+                <LABEl>categoria do Pedido:</LABEl>
+                <input type="text" name="categoria" id="categoria" placeholder="insira o categoria do Veiculo" class="form-control" required>
+                <br>
+                <input type="submit" class="btn btn-success" value="Cadastrar">
+              </form>
+              <hr>
+            </div>
+          </div>
+
+
+<div class="card">
+    <div class="card-header">
+        <h3>Lista de compras</h3>
+    </div>
+    <div class="card-body">
+<table class="table table-sm w-100 table-hover table-bordered">
+    <thead>
+    <tr>
+        <th class="col-md-2">Nome do Veiculo</th>
+        <th class="col-md-2">Preço</th>
+        <th class="col-md-2">Categoria</th>
+        <th colspan="2">Ações</th>
+    </tr>
+</thead>
+    <%pedidos.forEach((pedidos)=>{%>
+        <tr>
+            <th>
+                <%= pedidos.nome %>
+            </th>
+            <th>
+                R$ <%= pedidos.preco %>
+            </th>
+            <th>
+                <%= pedidos.categoria %>
+            </th>
+            <td><a style="color: orange;" href="/pedidos/edit/<%= pedidos.id%>">Editar</a></td>
+            <td><a style="color: red" href="/pedidos/delete/<%= pedidos.id %>" onclick="return confirm('deseja realmente deletar o pedido <%=pedidos.nome %>')">Deletar</a></td>
+       
+        </tr>
+            <%})%>
+    </table>
+    </div>
+</div>
+    <br>
+  
+    </div>
+</div>
+<%- include('partials/footer.ejs')%>
